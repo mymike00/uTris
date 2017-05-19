@@ -1,11 +1,11 @@
 var turno1pEnum = {
     PLAYER: 0,
     PC: 1,
-};
+}
 var turno2pEnum = {
     P1: "P1",
     P2: "P2",
-};
+}
 var turno1p = turno1pEnum.PLAYER
 var turno2p = turno2pEnum.P1
 var rowA2p = 0
