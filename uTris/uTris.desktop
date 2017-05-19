@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=uTris
+Exec=qmlscene %U uTris/Main.qml
+Icon=uTris/uTrisLogo.svg
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+X-Ubuntu-Splash-Image=uTris/uTrisLogo.svg
+X-Ubuntu-Splash-Color=#063c4f
+

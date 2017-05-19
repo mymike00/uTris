@@ -1,0 +1,15 @@
+{
+    "name": "utris.mike",
+    "description": "A simple tris game",
+    "architecture": "@CLICK_ARCH@",
+    "title": "uTris",
+    "hooks": {
+        "uTris": {
+            "apparmor": "uTris/uTris.apparmor",
+            "desktop": "uTris/uTris.desktop"
+        }
+    },
+    "version": "1.4.1",
+    "maintainer": "Michele Castellazzi <miguel2000@livecom.it>",
+    "framework": "ubuntu-sdk-15.04"
+}
