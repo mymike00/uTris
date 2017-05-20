@@ -1,6 +1,6 @@
 var turno1pEnum = {
-    PLAYER: 0,
-    PC: 1,
+    PLAYER: "PLAYER",
+    PC: "PC",
 }
 var turno2pEnum = {
     P1: "P1",
@@ -8,7 +8,8 @@ var turno2pEnum = {
 }
 var turno1p = turno1pEnum.PLAYER
 var turno2p = turno2pEnum.P1
-var rowA2p = 0
+
+var rowA2p = 0      //-> to array?
 var rowB2p = 0
 var rowC2p = 0
 var col12p = 0
@@ -16,7 +17,9 @@ var col22p = 0
 var col32p = 0
 var diagX2p = 0
 var diagY2p = 0
+
 var victory2p = false
+var victory1p = false
 
 
 function click2p(idCell, idImg, row, col, diag) {
@@ -61,6 +64,51 @@ function click2p(idCell, idImg, row, col, diag) {
                 checkVictory2p2()
             }
             else wrong.start()
+        }
+    }
+}
+
+function click1p(idCell, idImg, row, col, diag) {
+    //if someone has already won - se qualcuno ha già vinto
+    if (!victory1p) {
+        
+        //player's turn - turno giocatore
+        if (turno1p === turno1pEnum.PLAYER) {
+            if (idImg.source+"-" === "-") {
+                idImg.source = "logo-ubuntu.svg"
+                turno1p = turno1pEnum.PC
+                textTurn1p.text = turno1p === turno1pEnum.PLAYER ? i18n.tr("It's your turn") : i18n.tr("It's the turn of the PC")
+                if (row === "A") {rowA1p++; }//textA.text = "A: "+rowA2p}
+                else if (row === "B") {rowB1p++; }//textB.text = "B: "+rowB2p}
+                else if (row === "C") {rowC1p++; }//textC.text = "C: "+rowC2p}
+                if (col === 1) {col11p++; }//text1.text = "1: "+col12p}
+                else if (col === 2) {col21p++; }//text2.text = "2: "+col22p}
+                else if (col === 3) {col31p++; }//text3.text = "3: "+col32p}
+                if (diag === "DX-Y") {diagX1p++; diagY2p++; }//textX.text = "X: "+diagX2p; textY.text = "Y: "+diagY2p}
+                else if (diag === "DX") {diagX1p++; }//textX.text = "X: "+diagX2p}
+                else if (diag === "DY") {diagY1p++; }//textY.text = "Y: "+diagY2p}
+                checkVictory2p1()
+            }
+            else wrong.start()
+        }
+        
+        //pc's turn - turno pc
+        /*?else*/ if (turno1p === turno1pEnum.PC) {
+            //chech maggiore -> how?
+            if (rowA1p != 3 && rowA1p > rowB1p && rowB1p > rowC1p) {
+                //controllo spazi liberi
+                if (imgpA1.source+"-" === "-") {
+                    imgpA1.source = "logo-ubuntuW.svg"
+                    turno1p = turno1pEnum.PLAYER
+                    textTurn1p.text = turno1p === turno1pEnum.PLAYER ? i18n.tr("It's your turn") : i18n.tr("It's the turn of the PC")
+                }
+            if (rowB1p != 3 && rowB1p > rowA1p && rowA1p > rowC1p) {
+                else if (imgpB1.source+"-" === "-") {
+                    imgpB1.source = "logo-ubuntuW.svg"
+                    turno1p = turno1pEnum.PLAYER
+                    textTurn1p.text = turno1p === turno1pEnum.PLAYER ? i18n.tr("It's your turn") : i18n.tr("It's the turn of the PC")
+                }
+            }
         }
     }
 }
